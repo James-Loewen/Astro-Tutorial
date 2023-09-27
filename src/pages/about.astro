@@ -1,5 +1,23 @@
 ---
+const pageTitle = "About Me";
 
+const identity = {
+  firstName: "Suki",
+  lastName: "Richards",
+  country: "Turkey",
+  occupation: "very good cat",
+  hobbies: ["eating", "sleeping", "biting", "fighting"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const skillColor = "navy";
+const textCase = "uppercase";
+const fontWeight = "bolder";
 ---
 
 <html lang="en">
@@ -8,15 +26,58 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTitle}</title>
+    <style define:vars={{ skillColor, textCase, fontWeight }}>
+      h1 {
+        color: rebeccapurple;
+        font-size: 4rem;
+      }
+      .skill {
+        /* color: olive; */
+        color: var(--skillColor);
+        font-family: monospace;
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
+      }
+    </style>
   </head>
   <body>
     <a href="/">Home</a>
     <a href="/about/">About</a>
     <a href="/blog/">Blog</a>
     <h1>My Astro Site</h1>
-    <h2>About me!</h2>
+    <h2>{pageTitle}</h2>
     <p>... and my new Astro site!</p>
     <p>Currently, I'm working through Astro's introductory tutorial</p>
+    <p>Here are a few facts about one of my cats:</p>
+    <ul>
+      <li>Her name is {identity.firstName}.</li>
+      <li>
+        Her breed originated from {identity.country} and she is a {
+          identity.occupation
+        }
+      </li>
+      <li>
+        Her hobbies are:
+        <ul>
+          {identity.hobbies.map((hobby) => <li>{hobby}</li>)}
+        </ul>
+      </li>
+      <li>
+        Her skills include:
+        <ul>
+          {skills.map((skill) => <li class="skill">{skill}</li>)}
+        </ul>
+      </li>
+    </ul>
+    {happy && <p>I am happy to be learning Astro!</p>}
+    {finished && <p>I finished this tutorial!</p>}
+    {
+      goal === 3 ? (
+        <p>My goal is to finish in 3 days.</p>
+      ) : (
+        <p>My goal is not 3 days.</p>
+      )
+    }
   </body>
 </html>
