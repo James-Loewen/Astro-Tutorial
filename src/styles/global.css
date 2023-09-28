@@ -10,6 +10,15 @@ html {
   color: #232232;
 }
 
+html.dark {
+  background-color: #181325;
+  color: #fff;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}
+
 body {
   padding: 1rem;
   width: 100%;
