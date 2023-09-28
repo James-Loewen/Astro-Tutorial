@@ -1,5 +1,6 @@
 ---
-title: "My first blog post"
+layout: ../../layouts/MarkdownPostLayout.astro
+title: "My First Blog Post"
 pubDate: 2023-09-27
 description: "This is the first post of my new Astro blog."
 author: "Me"
@@ -8,10 +9,6 @@ image:
   alt: "The full Astro logo."
 tags: ["astro", "blogging", "learning in public"]
 ---
-
-# My First Blog Post
-
-Published on: 2023-09-27
 
 Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
 
@@ -26,3 +23,15 @@ Welcome to my _new blog_ about learning Astro! Here, I will share my learning jo
 ## What's Next
 
 I will finish the Astro tutorial and then keep adding more posts!
+
+```typescript
+const eggs: string[] = ["oh", "sick", "eggs"]; // AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+```
+
+| Name  | Species  |
+| ----- | -------- |
+| James | Human    |
+| Devon | Human    |
+| Suki  | Cat      |
+| Mako  | Cat      |
+| Haku  | Criminal |

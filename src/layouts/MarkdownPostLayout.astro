@@ -1,0 +1,31 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+
+const localeDateStringFromIsoString = (isoString: string): string => {
+  const [year, month, date] = isoString.slice(0, 10).split("-").map(Number);
+  return new Date(year, month - 1, date).toLocaleDateString();
+};
+
+const localDate = localeDateStringFromIsoString(frontmatter.pubDate);
+---
+
+<style>
+  .blog-link {
+    text-decoration: none;
+    color: teal;
+  }
+
+  .blog-link:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<BaseLayout>
+  <a class="blog-link" href="/blog/">Back to blogs</a>
+  <h1>{frontmatter.title}</h1>
+  <p>Published on {localDate}</p>
+  <p>Written by {frontmatter.author}</p>
+  <slot />
+</BaseLayout>
